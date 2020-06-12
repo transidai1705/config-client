@@ -1,0 +1,15 @@
+spring:
+    application:
+        name: config-client # application to look for the config file on config server ({application}-{profile}.[properties/yml])
+    profiles:
+        active: development		# profile to look for the config file on config server ({application}-{profile}.[properties/yml])
+    cloud:
+        config:
+            enabled: true					# enable/disable spring cloud config
+            failFast: true					# fail to start client if cannot connect to config server
+            label: develop					# the GIT branch they want to get config
+            uri: http://localhost:8888	    # the config server address (locally)
+#            uri: http://172.17.0.2:8888     # the config server address (for docker env). To see ip of config server, issue command: docker inspect config-server -f "{{json .NetworkSettings.Networks }}" 
+            username: app 					# username & password for connecting to config server (must be the same as configured on config server)
+            password: optsd1705
+            request-read-timeout: 5000      # timeout wait to connect to config server (in ms). -1 is infinite

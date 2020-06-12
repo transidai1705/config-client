@@ -1,0 +1,12 @@
+# JUST FOR DEVELOPMENT. enable dynamic configuration changes 
+# By default, the configuration values are read on the client’s startup and not again), couple with @RefreshScope annotation in @Bean
+management:
+    endpoints:
+        web:
+            exposure:
+                include: '*'
+
+# some properties for application
+# Precedence of config value: config server > client config
+user:
+    role: Overriden User (client)
